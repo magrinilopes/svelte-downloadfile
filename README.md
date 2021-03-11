@@ -1,5 +1,4 @@
 # svelte-downloadfile
----
 
 Svelte component
 
@@ -13,7 +12,9 @@ $ npm i -S @magrinilopes/svelte-downloadfile
 ## Usage
 
 ```html
-import {DownloadFile} from '@magrinilopes/svelte-downloadfile'
+<script>
+  import {DownloadFile} from '@magrinilopes/svelte-downloadfile'
+</script>
 
 <DownloadFile />
 ```
