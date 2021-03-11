@@ -1,10 +1,10 @@
-# tooltip-webcomponent
+# downloadfile-webcomponent
 
 [![NPM version][npm-img]][npm]
 
 
-[npm-img]:         https://img.shields.io/npm/v/@tadashi/tooltip-webcomponent.svg
-[npm]:             https://www.npmjs.com/package/@tadashi/tooltip-webcomponent
+[npm-img]:         https://img.shields.io/npm/v/@magrini/downloadfile-webcomponent.svg
+[npm]:             https://www.npmjs.com/package/@magrini/downloadfile-webcomponent
 
 ---
 
@@ -13,7 +13,7 @@ Svelte component
 ## Install
 
 ```
-$ npm i -S @tadashi/tooltip-webcomponent
+$ npm i -S @magrini/downloadfile-webcomponent
 ```
 
 
@@ -22,13 +22,13 @@ $ npm i -S @tadashi/tooltip-webcomponent
 ```html
 <script
 	type="module"
-	src="./node_modules/@tadashi/tooltip-webcomponent/dist/Tooltip.js"
+	src="./node_modules/@magrini/downloadfile-webcomponent/dist/DownloadFile.js"
 ></script>
 
-<tadashi-tooltip right="true" size="200">Ajuda aqui</tadashi-tooltip>
+<magrini-downloadfile right="true" size="200">Ajuda aqui</magrini-downloadfile>
 ```
 
 
 ## License
 
-MIT © [Thiago Lagden](https://github.com/lagden)
+MIT ©
