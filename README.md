@@ -1,11 +1,4 @@
-# downloadfile-webcomponent
-
-[![NPM version][npm-img]][npm]
-
-
-[npm-img]:         https://img.shields.io/npm/v/@magrinilopes/downloadfile-webcomponent.svg
-[npm]:             https://www.npmjs.com/package/@magrinilopes/downloadfile-webcomponent
-
+# svelte-downloadfile
 ---
 
 Svelte component
