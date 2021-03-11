@@ -6,19 +6,16 @@ Svelte component
 ## Install
 
 ```
-$ npm i -S @magrinilopes/downloadfile-webcomponent
+$ npm i -S @magrinilopes/svelte-downloadfile
 ```
 
 
 ## Usage
 
 ```html
-<script
-	type="module"
-	src="./node_modules/@magrinilopes/downloadfile-webcomponent/dist/DownloadFile.js"
-></script>
+import {DownloadFile} from '@magrinilopes/svelte-downloadfile'
 
-<magrini-downloadfile right="true" size="200">Ajuda aqui</magrini-downloadfile>
+<DownloadFile />
 ```
 
 
