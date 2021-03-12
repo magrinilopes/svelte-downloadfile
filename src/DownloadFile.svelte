@@ -1,4 +1,5 @@
 <script>
+	import {download} from '@tadashi/fd@1.0.1'
 	export let props
 	
 	let {
@@ -7,11 +8,15 @@
 		files = []
 	} = props
 	
-	function getHrefFile(file) {
-		if (file.type === 'BASE64') {
-			return `data:${file.content_type};base64,${file.body}`
+	async function getFile(url, filename) {
+    const response = await globalThis.fetch(url)
+    await download(response, filename)
+  }
+	
+	function getDownloadFile(file) {
+		return async () => {
+			await getFile(file.file_url, file.file_name)
 		}
-		return file.file_url
 	}
 </script>
 
@@ -19,9 +24,9 @@
 <div class="_input-downloadfile">
 	<div class="_input-content-files">
 		{#each files as file, i}
-		<a href={getHrefFile(file)} download={file.file_name}>{file.file_name}</a>
+		<button type="button" on:click={getDownloadFile(file)}>{file.file_name}</button>
 		{/each}
-	</div>
+	</div>	
 	{#if icon}
 	<div class="_box-icon-downloadfile _icon-nocursor">
 		<svg class="_icon-downloadfile">
@@ -31,11 +36,11 @@
 	{/if}
 </div>
 {:else}
-<a href={getHrefFile(files[0])} download={files[0].file_name} class="_btn-downloadfile" title={`Baixar ${files[0].file_name}`}>
+<button type="button" on:click={getDownloadFile(files[0])} class="_btn-downloadfile" title={`Baixar ${files[0].file_name}`}>
 	<svg class="_icon-downloadfile">
 		<use xlink:href="#{icon}" />
 	</svg>
-</a>
+</button>	
 {/if}
 
 <style>
@@ -50,6 +55,7 @@
 		--magrini-downloadfile-icon-size: 1.4em;
 		--magrini-downloadfile-icon-color: hsl(240deg 8% 44%);
 		--magrini-downloadfile-item-margin-right: 0.75em;
+		--magrini-downloadfile-border-color-focus: hsl(240deg 8% 44%);
 	}
 	
 	._input-downloadfile {
@@ -63,13 +69,21 @@
 	}
 	
 	._btn-downloadfile {
-		cursor: pointer;
 		fill: var(--magrini-downloadfile-icon-color);
 		color: var(--magrini-downloadfile-icon-color);
+		display: inline-block;
+		cursor: pointer;
+		background-color: transparent;
+		border: none;
+		padding: 0;
+		margin: 0 var(--magrini-downloadfile-item-margin-right) 0 0;
 	}
 	._btn-downloadfile:hover {
 		fill: var(--magrini-downloadfile-hover);
 		color: var(--magrini-downloadfile-hover);
+	}
+	._btn-downloadfile:active {
+		border-color: var(--magrini-downloadfile-border-color-focus);
 	}
 	
 	._input-content-files {
@@ -77,10 +91,17 @@
 		width: 100%;
 	}
 	
-	._input-content-files a {
+	._input-content-files button {
 		display: inline-block;
 		cursor: pointer;
-		margin-right: var(--magrini-downloadfile-item-margin-right)
+		background-color: transparent;
+		border: none;
+		padding: 0;
+		margin: 0 var(--magrini-downloadfile-item-margin-right) 0 0;
+	}
+	
+	._input-content-files button:hover{
+		color: var(--magrini-downloadfile-hover);
 	}
 	
 	._icon-nocursor {
