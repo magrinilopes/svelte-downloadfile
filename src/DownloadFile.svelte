@@ -9,9 +9,9 @@
 	} = props
 	
 	async function getFile(url, filename) {
-    const response = await globalThis.fetch(url)
-    await download(response, filename)
-  }
+		const response = await globalThis.fetch(url)
+		await download(response, filename)
+	}
 	
 	function getDownloadFile(file) {
 		return async () => {
