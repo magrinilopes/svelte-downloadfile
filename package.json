@@ -1,6 +1,6 @@
 {
   "name": "@magrinilopes/svelte-downloadfile",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "Svelte component",
   "author": "Daniel Magrini",
   "license": "MIT",
@@ -39,6 +39,7 @@
     "@babel/preset-env": "7.13.9",
     "@rollup/plugin-node-resolve": "11.2.0",
     "@testing-library/svelte": "3.0.3",
+    "@tadashi/fd": "^1.0.1",
     "eslint": "7.21.0",
     "eslint-config-xo": "0.35.0",
     "eslint-plugin-html": "6.1.1",
@@ -50,8 +51,5 @@
     "rollup-plugin-svelte": "7.1.0",
     "svelte": "3.35.0",
     "svelte-jester": "1.3.0"
-  },
-  "dependencies": {
-    "@tadashi/fd": "^1.0.1"
   }
 }
