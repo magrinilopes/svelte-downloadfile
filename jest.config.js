@@ -5,5 +5,8 @@ module.exports = {
 		'^.+\\.js$': 'babel-jest',
 		'^.+\\.svelte$': 'svelte-jester'
 	},
+	transformIgnorePatterns: [
+		'node_modules/(?!(@tadashi/fd)/)'
+	],
 	verbose: true
 }
