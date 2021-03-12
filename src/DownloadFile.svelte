@@ -1,15 +1,12 @@
 <script>
 	import {download} from '@tadashi/fd'
-
 	export let icon = false
 	export let type = 'INPUT'
 	export let files = []
-
 	async function getFile(url, filename) {
 		const response = await globalThis.fetch(url)
 		await download(response, filename)
 	}
-
 	function getDownloadFile(file) {
 		return async () => {
 			await getFile(file.file_url, file.file_name)
@@ -54,7 +51,6 @@
 		--magrini-downloadfile-item-margin-right: 0.75em;
 		--magrini-downloadfile-border-color-focus: hsl(240deg 8% 44%);
 	}
-
 	._input-downloadfile {
 		background-color: var(--magrini-downloadfile-background-color);
 		border: var(--magrini-downloadfile-border);
@@ -64,7 +60,6 @@
 		display: flex;
 		align-items: center;
 	}
-
 	._btn-downloadfile {
 		fill: var(--magrini-downloadfile-icon-color);
 		color: var(--magrini-downloadfile-icon-color);
@@ -77,42 +72,40 @@
 	}
 	._btn-downloadfile:hover {
 		fill: var(--magrini-downloadfile-hover);
-		color: var(--magrini-downloadfile-hover);
+		color: var(--magrini-downloadfile-hover);	
 	}
 	._btn-downloadfile:active {
 		border-color: var(--magrini-downloadfile-border-color-focus);
 	}
-
 	._input-content-files {
 		display: block;
-		width: 100%;
+		width: calc(100% - 1em);
 	}
-
 	._input-content-files button {
 		display: inline-block;
+		max-width: 95%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-align: left;
 		cursor: pointer;
 		background-color: transparent;
 		border: none;
 		padding: 0;
 		margin: 0 var(--magrini-downloadfile-item-margin-right) 0 0;
 	}
-
 	._input-content-files button:hover{
 		color: var(--magrini-downloadfile-hover);
 	}
-
 	._icon-nocursor {
 		cursor: default;
 	}
-
 	._icon-downloadfile {
 		width: var(--magrini-downloadfile-icon-size);
 		height: var(--magrini-downloadfile-icon-size);
 	}
-
 	._box-icon-downloadfile ._icon-downloadfile {
 		fill: var(--magrini-downloadfile-icon-color);
 		color: var(--magrini-downloadfile-icon-color);
 	}
-
 </style>
