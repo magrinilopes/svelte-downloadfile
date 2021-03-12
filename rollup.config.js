@@ -8,16 +8,23 @@ const name = pkg.name
 	.replace(/-\w/g, m => m[1].toUpperCase())
 
 export default {
+	external: ['@tadashi/fd'],
 	input: 'src/index.js',
 	output: [
 		{
 			file: 'dist/index.js',
-			format: 'es'
+			format: 'es',
+			globals: {
+				fd: 'fd'
+			}
 		},
 		{
 			name,
 			file: 'dist/index.umd.js',
-			format: 'umd'
+			format: 'umd',
+			globals: {
+				fd: 'fd'
+			}
 		}
 	],
 	plugins: [
